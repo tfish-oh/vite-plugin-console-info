@@ -6,7 +6,7 @@ interface flowOptions {
   projectName?: string
 }
 
-export default function vitePluginBuildInfo(options: flowOptions): Plugin {
+export default function vitePluginEnvInfo(options: flowOptions): Plugin {
   // 流水线环境变量
   const env = process.env
   console.log(env, '环境变量')
@@ -28,8 +28,14 @@ export default function vitePluginBuildInfo(options: flowOptions): Plugin {
     \n ${extStr}`
 
   return {
-    name: 'vite-plugin-console-info',
+    name: 'vite-plugin-env-info',
     // apply: 'build',
+    config: () => ({
+      define: {
+          __APP_INFO__: JSON.stringify(__APP_INFO__),
+          __GLOBAL_ENV_: env,
+      },
+    }),
     transformIndexHtml(): HtmlTagDescriptor[] {
       // 将htmlStr插到body里
       return [
