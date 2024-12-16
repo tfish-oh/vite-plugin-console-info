@@ -1,5 +1,5 @@
 {
-  "name": "vite-plugin-console-info-v3",
+  "name": "vite-plugin-console-info-v2",
   "version": "1.0.1",
   "description": "",
   "main": "./dist/index.cjs",
