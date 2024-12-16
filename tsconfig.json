@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es2015",
     "moduleResolution": "node",
     "strict": true,
-    "sourceMap": true,
+    "declaration": true,
+    "noUnusedLocals": true,
     "resolveJsonModule": true,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "noImplicitAny": false,
-    "lib": ["esnext", "dom"],
-    "types": [
-      "@types/node"
-    ]
+    "outDir": "dist",
+    "module": "CommonJS",
+    "lib": ["ESNext","DOM"],
+    "sourceMap": true,
   },
-  "include": ["./index.ts", "external.ts"],
-  "exclude": ["node_modules"]
+  "include": ["./index.ts", "external.js"],
+  "exclude": ["./node_modules"]
 }

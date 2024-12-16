@@ -14,7 +14,7 @@ export default function vitePluginBuildInfo(options: flowOptions): Plugin {
   // 当前项目包信息
   const pkg: any = fs.readFileSync(process.cwd() + '/package.json', 'utf-8')
   // 输出的js
-  const extStr: string = fs.readFileSync(path.join(__dirname, 'external.ts'), 'utf-8')
+  const extStr: string = fs.readFileSync(path.join(__dirname, './external.js'), 'utf-8')
   const { name, version } = JSON.parse(pkg)
   // 项目名称、包版本、打包时间等
   const __APP_INFO__ = {
