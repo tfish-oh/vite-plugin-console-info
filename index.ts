@@ -10,6 +10,7 @@ export default function vitePluginBuildInfo(options: flowOptions): Plugin {
   // 流水线环境变量
   const env = process.env
   console.log(env, '环境变量')
+  
   // 当前项目包信息
   const pkg: any = fs.readFileSync(process.cwd() + '/package.json', 'utf-8')
   // 输出的js
