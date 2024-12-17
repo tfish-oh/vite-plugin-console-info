@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-env-info",
-  "version": "1.0.7",
+  "version": "1.0.7-beta.1",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,7 +24,8 @@
     "vite"
   ],
   "files": [
-    "dist"
+    "dist",
+    "external.js"
   ],
   "author": "790028773@qq.com",
   "license": "ISC",

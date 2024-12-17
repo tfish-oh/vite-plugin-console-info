@@ -1,20 +1,21 @@
 import type { Plugin, HtmlTagDescriptor } from 'vite'
-import path from 'path'
+import { fileURLToPath } from 'url';
+import path ,{ dirname } from "path";
 import fs from 'fs'
-
-interface flowOptions {
+interface options {
   projectName?: string
 }
 
-export default function vitePluginEnvInfo(options: flowOptions): Plugin {
+export default function vitePluginEnvInfo(options: options): Plugin {
   // 流水线环境变量
   const env = process.env
-  console.log(env, '环境变量')
-  
+  const __filename = fileURLToPath(import.meta.url);
+  // 获取目录路径
+  const __dirname = dirname(__filename);
   // 当前项目包信息
   const pkg: any = fs.readFileSync(process.cwd() + '/package.json', 'utf-8')
   // 输出的js
-  const extStr: string = fs.readFileSync(path.join(__dirname, './external.js'), 'utf-8')
+  const extStr: string = fs.readFileSync(path.join(__dirname, '../external.js'), 'utf-8')
   const { name, version } = JSON.parse(pkg)
   // 项目名称、包版本、打包时间等
   const __APP_INFO__ = {
@@ -29,7 +30,7 @@ export default function vitePluginEnvInfo(options: flowOptions): Plugin {
 
   return {
     name: 'vite-plugin-env-info',
-    // apply: 'build',
+    apply: 'build',
     config: () => ({
       define: {
           __APP_INFO__: JSON.stringify(__APP_INFO__),
