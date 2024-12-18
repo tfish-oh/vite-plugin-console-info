@@ -6,14 +6,13 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "rimraf dist && tsup ./index.ts --dts --format cjs,esm",
+    "build": "rimraf dist && tsup ./index.ts --dts --format esm",
     "release": "npm run build && standard-version --infile CHANGELOG.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     },
     "./*": "./*"
   },
