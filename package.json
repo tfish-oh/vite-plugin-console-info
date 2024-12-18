@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-env-info",
-  "version": "1.0.7-beta.2",
+  "version": "1.0.7",
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,7 +17,7 @@
     "./*": "./*"
   },
   "keywords": [
-    "console",
+    "env",
     "build",
     "plugin",
     "vite"
